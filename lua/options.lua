@@ -1,3 +1,13 @@
+--set vim to autoread when a change is detected
+vim.cmd [[
+  set autoread
+  augroup AutoReload
+    autocmd!
+    autocmd CursorHold * checktime
+  augroup END
+]]
+vim.api.nvim_command "call feedkeys('lh')"
+
 -- Set <space> as the leader key
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
@@ -85,10 +95,13 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 999
 
 -- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
+
+-- make enter and backspace to add or delete lines in normal mode
+vim.keymap.set('n', '<CR>', 'o<esc>d0D')
+vim.keymap.set('n', '<BS>', 'ddk')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true

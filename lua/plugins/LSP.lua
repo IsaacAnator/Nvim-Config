@@ -140,7 +140,7 @@ return {
         clangd = {},
 
         -- Python Lsp
-        basedpyright = {},
+        basedpyright = { opts = { inlay_hints = { enabled = true } } },
 
         -- ruff_lsp = {},
         -- gopls = {},
