@@ -98,11 +98,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 999
 
 -- [[ Basic Keymaps ]]
-
--- make enter and backspace to add or delete lines in normal mode
-vim.keymap.set('n', '<CR>', 'o<esc>d0D')
-vim.keymap.set('n', '<BS>', 'ddk')
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
